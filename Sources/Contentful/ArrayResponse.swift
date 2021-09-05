@@ -199,16 +199,16 @@ extension HomogeneousArrayResponse: Decodable {
 /**
  Container for includes within a
  */
-internal struct HeterogeneousIncludes: Decodable {
-    internal let assets: [Asset]?
-    internal let entries: [EntryDecodable]?
+public struct HeterogeneousIncludes: Decodable {
+    public let assets: [Asset]?
+    public let entries: [EntryDecodable]?
 
     private enum CodingKeys: String, CodingKey {
         case assets     = "Asset"
         case entries    = "Entry"
     }
 
-    internal init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container       = try decoder.container(keyedBy: CodingKeys.self)
         assets              = try container.decodeIfPresent([Asset].self, forKey: .assets)
         entries             = try container.decodeHeterogeneousEntries(forKey: .entries,
@@ -249,12 +249,12 @@ public struct HeterogeneousArrayResponse: Array {
     /// cannot be resolved.
     public let errors: [ArrayResponseError]?
 
-    internal let includes: HeterogeneousIncludes?
+    public let includes: HeterogeneousIncludes?
 
-    internal var includedAssets: [Asset]? {
+    public var includedAssets: [Asset]? {
         return includes?.assets
     }
-    internal var includedEntries: [EntryDecodable]? {
+    public var includedEntries: [EntryDecodable]? {
         return includes?.entries
     }
 }

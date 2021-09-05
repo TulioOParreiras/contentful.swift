@@ -1,10 +1,8 @@
 #!/usr/bin/ruby
 
-require 'dotenv/load'
-
 Pod::Spec.new do |spec|
   spec.name             = "Contentful"
-  spec.version          = ENV['CONTENTFUL_SDK_VERSION']
+  spec.version          = "9.9.9"
   spec.summary          = "Swift SDK for Contentful's Content Delivery API."
   spec.homepage         = "https://github.com/contentful/contentful.swift/"
   spec.social_media_url = 'https://twitter.com/contentful'
@@ -15,8 +13,7 @@ Pod::Spec.new do |spec|
   }
 
   spec.authors      = { "JP Wright" => "jp@contentful.com", "Boris Bügling" => "boris@buegling.com" }
-  spec.source       = { :git => "https://github.com/contentful/contentful.swift.git",
-                        :tag => spec.version.to_s }
+  spec.source       = { :git => "git@github.com:TulioOParreiras/contentful.swift.git" }
   spec.requires_arc = true
 
   spec.swift_version             = '5'
